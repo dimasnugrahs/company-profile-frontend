@@ -86,7 +86,7 @@ const HeroSection = () => {
         <h2 className="font-bold text-3xl text-center text-company-950 ">
           Solusi Keuangan Anda. Lebih Mudah, Cepat dan Terpercaya.
         </h2>
-        <p className="text-center">
+        <p className="text-center mt-2">
           Kelola keuangan Anda dengan lebih mudah dan aman. Kami hadir untuk
           memberikan solusi keuangan yang cepat, transparan, dan terpercaya,
           membantu Anda mencapai tujuan finansial dengan lebih baik.
