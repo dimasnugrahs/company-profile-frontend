@@ -73,7 +73,7 @@ const HeroSection = () => {
           <button
             key={i}
             onClick={() => setIndex(i)}
-            className={`w-2 h-2 rounded-full ${
+            className={`w-1 h-1 rounded-full ${
               i === index ? "bg-white" : "bg-gray-500"
             }`}
           ></button>
