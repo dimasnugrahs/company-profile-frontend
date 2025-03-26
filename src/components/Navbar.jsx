@@ -55,7 +55,7 @@ export default function Navbar() {
       } ${navbarBg || isOpen ? "bg-company-50" : "bg-transparent"}`}
     >
       <div className="mx-auto">
-        <div className="flex items-center justify-between py-4 px-6 lg:px-0 lg:py-0">
+        <div className="flex items-center justify-between py-2 px-6 lg:px-0 lg:py-0">
           <ul>
             <Link
               to="/"
