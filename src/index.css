@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: dm;
+  src: url("./assets/fonts/DMSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: inter;
+  src: url("./assets/fonts/Inter_18pt-Regular.ttf");
+}
+
+@theme {
+  --font-display: dm, "sans-serif";
+  --font-inter: inter, "sans-serif";
+
+  --color-company-50: #f7faff;
+  --color-company-100: #dae7ff;
+  --color-company-200: #bdd6ff;
+  --color-company-300: #90bcff;
+  --color-company-400: #5c99fe;
+  --color-company-500: #3672fb;
+  --color-company-600: #2051f0;
+  --color-company-700: #183ddd;
+  --color-company-800: #1a32b3;
+  --color-company-900: #1b308d;
+  --color-company-950: #182360;
+}
+
+body {
+  font-family: var(--font-display);
+  font-size: 16px;
+
+  background: var(--color-company-50);
+
+  .container-content {
+    margin-left: 35px;
+    margin-right: 35px;
+  }
+}
