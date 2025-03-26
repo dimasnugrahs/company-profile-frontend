@@ -82,7 +82,7 @@ const HeroSection = () => {
           ))}
         </div>
       </div>
-      <div className="lg:hidden px-5 py-32">
+      <div className="lg:hidden px-6 py-32">
         <h2 className="font-bold text-3xl text-center text-company-950 ">
           Solusi Keuangan Anda. Lebih Mudah, Cepat dan Terpercaya.
         </h2>
