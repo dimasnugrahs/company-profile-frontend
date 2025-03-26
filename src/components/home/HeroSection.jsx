@@ -47,7 +47,7 @@ const HeroSection = () => {
 
   return (
     <div
-      className="relative w-full h-auto md:h-screen overflow-hidden"
+      className="relative w-full h-auto md:h-screen overflow-hidden lg:mt-0 mt-16"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
