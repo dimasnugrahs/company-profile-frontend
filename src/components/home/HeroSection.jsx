@@ -41,7 +41,7 @@ const HeroSection = () => {
               </div>
               <div className="flex justify-center mb-40 lg:mb-0">
                 <div
-                  className="w-[600px] h-[400px] px-12"
+                  className="w-[600px] h-[600px] px-12"
                   style={{
                     backgroundImage: `url(${slide.image})`,
                     backgroundPosition: "center",
