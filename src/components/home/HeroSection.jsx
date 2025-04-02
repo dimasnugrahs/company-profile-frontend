@@ -2,57 +2,36 @@ import { Link } from "react-router-dom";
 import HeroSectionFirst from "../../assets/images/hero-section-1.png";
 
 const HeroSection = () => {
-  const slides = [
-    {
-      id: 1,
-      image: HeroSectionFirst,
-      title: "Solusi Keuangan Anda Lebih Mudah, Cepat dan Terpercaya",
-      description:
-        "Kelola keuangan Anda dengan lebih mudah dan aman. Kami hadir untuk memberikan solusi keuangan yang cepat, transparan, dan terpercaya, membantu Anda mencapai tujuan finansial dengan lebih baik.",
-    },
-  ];
-
   return (
-    <div className="lg:px-32">
-      <div className="relative h-screen w-full overflow-hidden">
-        {slides.map((slide) => (
-          <div
-            key={slide.id}
-            className="absolute inset-0 flex items-center justify-center"
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-2 px-6 md:px-0 h-full items-center">
-              <div className="max-w-xl lg:max-w-4xl text-center lg:text-left mt-20 lg:mt-0">
-                <h2 className="text-3xl lg:text-5xl font-inter font-black mb-4 text-company-950">
-                  {slide.title}
-                </h2>
-                <p className="text-company-950 mb-4">{slide.description}</p>
-                <div className="flex justify-center lg:justify-start gap-3 transition-opacity duration-700 ease-out">
-                  <Link to="/services">
-                    <button className="px-6 py-2 border-2 border-company-500 text-company-950 rounded-lg hover:bg-company-500 hover:text-company-50 focus:outline-none">
-                      Jelajahi Layanan
-                    </button>
-                  </Link>
-                  <Link to="https://wa.me/6282146485018?text=Halo%20Bagus%20Komputer,%20saya%20ingin%20mengetahui%20lebih%20lanjut%20tentang%20layanan%20Anda.">
-                    <button className="px-6 py-2 text-company-50 hover:text-company-50 border-2 border-company-500 bg-company-500 rounded-lg hover:border-company-700 hover:bg-company-700">
-                      Hubungi Sekarang
-                    </button>
-                  </Link>
-                </div>
-              </div>
-              <div className="flex justify-center mb-40 lg:mb-0">
-                <div
-                  className="w-[600px] lg:h-[600px] h-[400px] px-12"
-                  style={{
-                    backgroundImage: `url(${slide.image})`,
-                    backgroundPosition: "center",
-                    backgroundSize: "contain",
-                    backgroundRepeat: "no-repeat",
-                  }}
-                ></div>
-              </div>
-            </div>
-          </div>
-        ))}
+    <div className="flex flex-col lg:flex-row items-center justify-between bg-gray-100 w-full min-h-screen lg:px-32 px-6 ">
+      <div className="lg:w-1/2 text-center lg:text-left space-y-6 lg:pt-0 pt-24">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">
+          Solusi Keuangan Anda Lebih Mudah, Cepat dan Terpercaya
+        </h1>
+        <p className="text-gray-700 sm:text-base lg:text-lg">
+          Kelola keuangan Anda dengan lebih mudah dan aman. Kami hadir untuk
+          memberikan solusi keuangan yang cepat, transparan, dan terpercaya,
+          membantu Anda mencapai tujuan finansial dengan lebih baik.
+        </p>
+        <div className="flex flex-col sm:flex-row justify-center lg:justify-start space-y-3 sm:space-y-0 sm:space-x-4">
+          <Link to="/services">
+            <button className="px-6 py-2 border-2 border-company-500 text-company-500 rounded-lg hover:bg-company-500 hover:text-company-50 hover:border-company-500">
+              Jelajahi Layanan
+            </button>
+          </Link>
+          <Link to="https://wa.me/6282146485018?text=Halo%20Bagus%20Komputer,%20saya%20ingin%20mengetahui%20lebih%20lanjut%20tentang%20layanan%20Anda.">
+            <button className="px-6 py-2 text-company-50 border-2 border-company-500 bg-company-500 rounded-lg hover:bg-company-700 hover:text-brand-white hover:border-company-700">
+              Hubungi Sekarang
+            </button>
+          </Link>
+        </div>
+      </div>
+      <div className="lg:w-1/2 flex justify-center mb-16 mt-0 lg:mt-0">
+        <img
+          src={HeroSectionFirst}
+          alt="Illustration"
+          className="w-full max-w-sm sm:max-w-md lg:max-w-lg"
+        />
       </div>
     </div>
   );
