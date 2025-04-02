@@ -22,10 +22,10 @@ const HeroSection = () => {
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 px-6 md:px-0 h-full items-center">
               <div className="max-w-xl lg:max-w-4xl text-center lg:text-left mt-20 lg:mt-0">
-                <h2 className="text-2xl lg:text-5xl font-inter font-black mb-4 text-company-950">
+                <h2 className="text-2xl lg:text-6xl font-inter font-black mb-4 text-company-950">
                   {slide.title}
                 </h2>
-                <p className="text-company-950">{slide.description}</p>
+                <p className="text-company-950 text-xl mb-4">{slide.description}</p>
                 <div className="flex justify-center lg:justify-start gap-3 transition-opacity duration-700 ease-out">
                   <Link to="/services">
                     <button className="px-6 py-2 border-2 border-company-500 text-company-950 rounded-lg hover:bg-company-500 hover:text-company-50 focus:outline-none">
