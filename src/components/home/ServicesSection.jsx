@@ -4,34 +4,34 @@ import ImageCardTwo from "../../assets/images/products-2.jpg";
 import ImageCardThree from "../../assets/images/products-3.jpg";
 import ImageCardFourth from "../../assets/images/products-4.jpg";
 
-const services = [
-  {
-    id: 1,
-    image: ImageCardOne,
-    title: "Tabungan Harian",
-    tags: ["#photography", "#travel", "#winter"],
-  },
-  {
-    id: 2,
-    image: ImageCardTwo,
-    title: "Tabungan Berjangka",
-    tags: ["#nature", "#hiking", "#explore"],
-  },
-  {
-    id: 3,
-    image: ImageCardThree,
-    title: "Deposito",
-    tags: ["#cityscape", "#night", "#urban"],
-  },
-  {
-    id: 4,
-    image: ImageCardFourth,
-    title: "Kredit Pinjaman",
-    tags: ["#beach", "#ocean", "#relax"],
-  },
-];
-
 const ServicesSection = () => {
+  const services = [
+    {
+      id: 1,
+      image: ImageCardOne,
+      title: "Tabungan Harian",
+      tags: ["#photography", "#travel", "#winter"],
+    },
+    {
+      id: 2,
+      image: ImageCardTwo,
+      title: "Tabungan Berjangka",
+      tags: ["#nature", "#hiking", "#explore"],
+    },
+    {
+      id: 3,
+      image: ImageCardThree,
+      title: "Deposito",
+      tags: ["#cityscape", "#night", "#urban"],
+    },
+    {
+      id: 4,
+      image: ImageCardFourth,
+      title: "Kredit Pinjaman",
+      tags: ["#beach", "#ocean", "#relax"],
+    },
+  ];
+
   return (
     <LayoutBackgroundCompany>
       <div>
