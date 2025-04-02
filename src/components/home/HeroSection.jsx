@@ -8,12 +8,12 @@ const HeroSection = () => {
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-inter font-black text-company-950">
           Solusi Keuangan Anda Lebih Mudah, Cepat dan Terpercaya
         </h1>
-        <p className="text-company-950 text-lg">
+        <p className="text-company-950 lg:text-lg">
           Kelola keuangan Anda dengan lebih mudah dan aman. Kami hadir untuk
           memberikan solusi keuangan yang cepat, transparan, dan terpercaya,
           membantu Anda mencapai tujuan finansial dengan lebih baik.
         </p>
-        <div className="flex flex-col sm:flex-row justify-center lg:justify-start space-y-3 sm:space-y-0 sm:space-x-4 text-lg">
+        <div className="flex flex-col sm:flex-row justify-center lg:justify-start space-y-3 sm:space-y-0 sm:space-x-4 lg:text-lg">
           <Link to="/services">
             <button className="px-6 py-2 border-2 border-company-500 text-company-500 rounded-lg hover:bg-company-500 hover:text-company-50 hover:border-company-500">
               Jelajahi Layanan
