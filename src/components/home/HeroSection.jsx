@@ -1,84 +1,58 @@
-import { useEffect, useState } from "react";
-import HeroSectionFirst from "../../assets/images/hero-section-1.jpg";
-import HeroSectionSecond from "../../assets/images/hero-section-2.jpg";
-import HeroSectionThird from "../../assets/images/hero-section-3.jpg";
+import { Link } from "react-router-dom";
+import HeroSectionFirst from "../../assets/images/hero-section-1.png";
 
 const HeroSection = () => {
   const slides = [
     {
       id: 1,
       image: HeroSectionFirst,
-    },
-    {
-      id: 2,
-      image: HeroSectionSecond,
-    },
-    {
-      id: 3,
-      image: HeroSectionThird,
+      title: "Solusi Keuangan Anda Lebih Mudah, Cepat dan Terpercaya",
+      description:
+        "Kelola keuangan Anda dengan lebih mudah dan aman. Kami hadir untuk memberikan solusi keuangan yang cepat, transparan, dan terpercaya, membantu Anda mencapai tujuan finansial dengan lebih baik.",
     },
   ];
 
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  // Function untuk beralih ke slide berikutnya
-  const nextSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-  };
-
-  // Function untuk beralih ke slide sebelumnya
-  const prevSlide = () => {
-    setCurrentSlide((prevSlide) =>
-      prevSlide === 0 ? slides.length - 1 : prevSlide - 1
-    );
-  };
-
-  // Menggunakan useEffect untuk autoplay
-  useEffect(() => {
-    const slideInterval = setInterval(nextSlide, 4000); // Ganti slide setiap 4 detik
-    return () => clearInterval(slideInterval); // Bersihkan interval saat komponen di-unmount
-  });
-
   return (
-    <div>
-      <div className="relative h-screen w-full overflow-hidden hidden lg:block">
-        {slides.map((slide, index) => (
+    <div className="lg:px-32">
+      <div className="relative h-screen w-full overflow-hidden">
+        {slides.map((slide) => (
           <div
             key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              index === currentSlide ? "opacity-100" : "opacity-0"
-            }`}
-            style={{
-              backgroundImage: `url(${slide.image})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          ></div>
+            className="absolute inset-0 flex items-center justify-center"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-2 px-6 md:px-0 h-full items-center">
+              <div className="max-w-xl lg:max-w-4xl text-center lg:text-left mt-20 lg:mt-0">
+                <h2 className="text-2xl lg:text-5xl font-inter font-black mb-4 text-company-950">
+                  {slide.title}
+                </h2>
+                <p className="text-company-950">{slide.description}</p>
+                <div className="flex justify-center lg:justify-start gap-3 transition-opacity duration-700 ease-out">
+                  <Link to="/services">
+                    <button className="px-6 py-2 border-2 border-company-500 text-company-950 rounded-lg hover:bg-company-500 hover:text-company-50 focus:outline-none">
+                      Jelajahi Layanan
+                    </button>
+                  </Link>
+                  <Link to="https://wa.me/6282146485018?text=Halo%20Bagus%20Komputer,%20saya%20ingin%20mengetahui%20lebih%20lanjut%20tentang%20layanan%20Anda.">
+                    <button className="px-6 py-2 text-company-50 hover:text-company-50 border-2 border-company-500 bg-company-500 rounded-lg hover:border-company-700 hover:bg-company-700">
+                      Hubungi Sekarang
+                    </button>
+                  </Link>
+                </div>
+              </div>
+              <div className="flex justify-center mb-40 lg:mb-0">
+                <div
+                  className="w-[600px] h-[400px] px-12"
+                  style={{
+                    backgroundImage: `url(${slide.image})`,
+                    backgroundPosition: "center",
+                    backgroundSize: "contain",
+                    backgroundRepeat: "no-repeat",
+                  }}
+                ></div>
+              </div>
+            </div>
+          </div>
         ))}
-
-        {/* Tombol navigasi */}
-        <button
-          onClick={prevSlide}
-          className="hidden md:block absolute top-1/2 left-4 transform -translate-y-1/2 bg-transparent text-black px-4 py-2 rounded-full"
-        >
-          &#10094;
-        </button>
-        <button
-          onClick={nextSlide}
-          className="hidden md:block absolute top-1/2 right-4 transform -translate-y-1/2 bg-transparent text-black px-4 py-2 rounded-full"
-        >
-          &#10095;
-        </button>
-      </div>
-      <div className="lg:hidden px-10 py-32">
-        <h2 className="font-bold text-3xl text-center text-company-950">
-          Solusi Keuangan Anda. Lebih Mudah, Cepat dan Terpercaya.
-        </h2>
-        <p className="mt-4 text-center text-company-950">
-          Kelola keuangan Anda dengan lebih mudah dan aman. Kami hadir untuk
-          memberikan solusi keuangan yang cepat, transparan, dan terpercaya,
-          membantu Anda mencapai tujuan finansial dengan lebih baik.
-        </p>
       </div>
     </div>
   );

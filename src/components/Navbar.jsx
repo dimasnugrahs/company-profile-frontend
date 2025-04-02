@@ -111,7 +111,7 @@ export default function Navbar() {
             <ul>
               <Link
                 to="/contact"
-                className="px-4 py-2 rounded-md bg-company-400 text-company-50 hover:text-company-50  hover:bg-company-500 hover:shadow-lg"
+                className="px-4 py-2 rounded-md bg-company-500 text-company-50 hover:text-company-50  hover:bg-company-700 hover:shadow-lg"
               >
                 Kontak kami
               </Link>
