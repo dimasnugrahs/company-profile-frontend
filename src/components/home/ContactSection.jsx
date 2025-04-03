@@ -20,7 +20,7 @@ const ContactSection = () => {
               <h4 className="text-company-50 leading-6 mb-4 lg:text-left text-center">
                 Contact Us
               </h4>
-              <h2 className="text-company-50 font-manrope text-3xl lg:text-6xl font-semibold mb-9 lg:text-left text-center">
+              <h2 className="text-company-50 font-inter-black text-3xl lg:text-5xl font-semibold lg:mb-36 mb-2 lg:text-left text-center">
                 Temukan dan Hubungi Kami
               </h2>
             </div>
@@ -39,10 +39,10 @@ const ContactSection = () => {
                     className="mx-auto h-12 w-auto mb-6"
                   />
                 </Link>
-                <hr className="mb-6 mx-11" />
+                <hr className="mb-6 mx-4" />
                 <Link
                   to="/"
-                  className="flex items-center mb-6"
+                  className="flex items-center mb-4 px-10"
                   onClick={() => handleScrollToTop("/")}
                 >
                   <svg
@@ -60,13 +60,13 @@ const ContactSection = () => {
                       stroke-linejoin="round"
                     ></path>
                   </svg>
-                  <h5 className="text-black text-base font-normal leading-6 ml-5">
+                  <h5 className="text-black leading-6 ml-5">
                     0821 - 4648 - 5018
                   </h5>
                 </Link>
                 <Link
                   to="/"
-                  className="flex items-center mb-6"
+                  className="flex items-center mb-4 px-10"
                   onClick={() => handleScrollToTop("/")}
                 >
                   <svg
@@ -83,13 +83,13 @@ const ContactSection = () => {
                       stroke-linecap="round"
                     ></path>
                   </svg>
-                  <h5 className="text-black text-base font-normal leading-6 ml-5">
+                  <h5 className="text-black leading-6 ml-5">
                     example@email.com
                   </h5>
                 </Link>
                 <Link
                   to="/"
-                  className="flex items-center mb-6"
+                  className="flex items-center mb-4 px-10"
                   onClick={() => handleScrollToTop("/")}
                 >
                   <svg
@@ -110,11 +110,12 @@ const ContactSection = () => {
                       stroke-width="2"
                     ></path>
                   </svg>
-                  <h5 className="text-black text-base font-normal leading-6 ml-5">
+                  <h5 className="text-black leading-6 ml-5">
                     Kerambitan, Tabanan, Bali
                   </h5>
                 </Link>
-                <div className="flex items-center justify-center border-t border-company-950 pt-6 mx-12">
+                <hr className="mb-6 mx-4 mt-6" />
+                <div className="flex items-center justify-center">
                   <Link
                     to="/"
                     className="mr-6"

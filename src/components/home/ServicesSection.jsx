@@ -36,7 +36,7 @@ const ServicesSection = () => {
   return (
     <LayoutBackgroundCompany>
       <div>
-        <h1 className="text-4xl text-company-50 font-inter font-black text-center">
+        <h1 className="text-4xl text-company-50 font-inter-black text-center">
           Pilihan tepat untuk pertumbuhan keuangan Anda
         </h1>
         <p className="text-company-50 text-center mt-2">

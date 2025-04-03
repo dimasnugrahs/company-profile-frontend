@@ -42,14 +42,12 @@ const Footer = () => {
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             <div>
-              <h2 className="mb-6 font-semibold uppercase text-company-50">
-                Tentang Kami
-              </h2>
+              <h2 className="mb-6 uppercase text-company-50">Tentang Kami</h2>
               <ul>
                 <li className="mb-4">
                   <Link
                     to="https://github.com/themesberg/flowbite"
-                    className=" text-slate-400 hover:text-company-50"
+                    className="text-slate-400 hover:text-company-50"
                   >
                     {" "}
                     Perusahaan
@@ -59,14 +57,12 @@ const Footer = () => {
             </div>
 
             <div>
-              <h2 className="mb-6 text-sm font-semibold uppercase text-company-50">
-                Produk Kami
-              </h2>
+              <h2 className="mb-6 uppercase text-company-50">Produk Kami</h2>
               <ul>
                 <li className="mb-4">
                   <Link
                     to="/services"
-                    className=" text-slate-400 hover:text-company-50"
+                    className="text-slate-400 hover:text-company-50"
                   >
                     Tabungan Harian
                   </Link>
@@ -74,7 +70,7 @@ const Footer = () => {
                 <li className="mb-4">
                   <Link
                     to="/services"
-                    className=" text-slate-400 hover:text-company-50"
+                    className="text-slate-400 hover:text-company-50"
                   >
                     Tabungan Berjangka
                   </Link>
@@ -82,7 +78,7 @@ const Footer = () => {
                 <li className="mb-4">
                   <Link
                     to="/services"
-                    className=" text-slate-400 hover:text-company-50"
+                    className="text-slate-400 hover:text-company-50"
                   >
                     Deposito
                   </Link>
@@ -90,7 +86,7 @@ const Footer = () => {
                 <li>
                   <Link
                     to="/services"
-                    className=" text-slate-400 hover:text-company-50"
+                    className="text-slate-400 hover:text-company-50"
                   >
                     Kredit Pinjaman
                   </Link>
@@ -99,33 +95,22 @@ const Footer = () => {
             </div>
 
             <div>
-              <h2 className="mb-6 text-sm font-semibold uppercase text-company-50">
-                Temukan Kami
-              </h2>
+              <h2 className="mb-6 uppercase text-company-50">Temukan Kami</h2>
               <ul>
                 <li className="mb-4">
-                  <Link
-                    to="#"
-                    className=" text-slate-400 hover:text-company-50"
-                  >
+                  <Link to="#" className="text-slate-400 hover:text-company-50">
                     {" "}
                     Customer Care & Service
                   </Link>
                 </li>
                 <li className="mb-4">
-                  <Link
-                    to="#"
-                    className=" text-slate-400 hover:text-company-50"
-                  >
+                  <Link to="#" className="text-slate-400 hover:text-company-50">
                     {" "}
                     Instagram
                   </Link>
                 </li>
                 <li className="mb-4">
-                  <Link
-                    to="#"
-                    className=" text-slate-400 hover:text-company-50"
-                  >
+                  <Link to="#" className="text-slate-400 hover:text-company-50">
                     {" "}
                     Facebook
                   </Link>

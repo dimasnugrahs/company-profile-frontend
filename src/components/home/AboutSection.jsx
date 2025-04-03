@@ -4,6 +4,15 @@ const AboutSection = () => {
   return (
     <LayoutCompany>
       <div className="mx-auto">
+        <div>
+          <h1 className="text-4xl text-company-950 font-inter-black text-center">
+            Kelola keuanganmu sekarang di BPR Restu Dewata
+          </h1>
+          <p className="text-company-950 text-center lg:mt-2 mt-4 mb-8">
+            Tumbuh Bersama BPR Restu Dewata, Wujudkan Keuangan yang Lebih Stabil
+            dan Berkembang.
+          </p>
+        </div>
         <div className="gap-12 items-center mx-auto max-w-screen-xl lg:grid lg:grid-cols-2">
           <div className="lg:w-full flex justify-center mx-auto">
             <div className="relative w-full h-0 pb-[56.25%] overflow-hidden rounded-lg shadow-lg">
@@ -20,20 +29,20 @@ const AboutSection = () => {
           </div>
 
           <div className="lg:w-5/6 mt-10 lg:mt-0 text-center lg:text-left mx-auto">
-            <p className="text-sm text-gray-600 uppercase font-semibold mb-2">
+            <p className="text-gray-500 uppercase mb-2">
               Established Since 2000
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-company-950 mt-2 leading-tight">
+            <h2 className="text-3xl md:text-4xl font-inter-black text-company-950 leading-10">
               Melayani Anda <br />
               <span className="text-company-500">lebih dari 24 tahun.</span>
             </h2>
-            <p className="text-gray-600 mt-4 leading-relaxed text-justify lg:text-left">
+            <p className="text-gray-600 mt-2 leading-relaxed text-justify lg:text-justify">
               Lembaga perbankan yang telah melayani masyarakat selama lebih dari
               24 tahun. Dengan pengalaman yang luas dan komitmen untuk
               memberikan layanan berkualitas, kami menyediakan berbagai solusi
               keuangan yang dirancang untuk memenuhi kebutuhan nasabah kami.
             </p>
-            <button className="mt-6 bg-company-500 hover:bg-company-700 text-white font-semibold py-2 px-8 rounded-lg transition duration-300 shadow-lg">
+            <button className="mt-6 bg-company-500 hover:bg-company-700 text-company-50 py-2 px-10 rounded-lg transition duration-300 shadow-lg">
               Tentang Perusahaan
             </button>
           </div>

@@ -31,10 +31,10 @@ const WhyChooseUsSection = () => {
   return (
     <LayoutCompany>
       <div>
-        <h1 className="text-4xl text-company-950 font-inter font-black text-center">
+        <h1 className="text-4xl text-company-950 font-inter-black text-center">
           Kelola keuanganmu sekarang di BPR Restu Dewata
         </h1>
-        <p className="text-company-950 text-center mt-2 text-lg">
+        <p className="text-company-950 text-center mt-2">
           Tumbuh Bersama BPR Restu Dewata, Wujudkan Keuangan yang Lebih Stabil
           dan Berkembang.
         </p>
@@ -52,7 +52,7 @@ const WhyChooseUsSection = () => {
               style={{ backgroundImage: `url(${card.image})` }}
             ></div>
             <div className="absolute inset-0 hover:bg-gradient-b hover:from-company-950 hover:opacity-60 bg-gradient-to-t from-blue-600 to-transparent opacity-70"></div>
-            <div className="absolute bottom-0 w-full text-white text-center py-4 text-[20px]">
+            <div className="absolute bottom-0 w-full text-white text-center py-4 text-2xl">
               {card.title}
             </div>
           </div>
