@@ -3,19 +3,17 @@
 @font-face {
   font-family: dm;
   src: url("./assets/fonts/DMSans-Regular.ttf");
-  font-size: 14px;
+  font-size: 16px;
 }
 
 @font-face {
   font-family: inter;
   src: url("./assets/fonts/Inter_18pt-Regular.ttf");
-  font-size: 14px;
 }
 
 @font-face {
   font-family: inter-black;
   src: url("./assets/fonts/Inter_18pt-Black.ttf");
-  font-size: 14px;
 }
 
 @theme {
@@ -38,7 +36,6 @@
 
 body {
   font-family: var(--font-display);
-  font-size: 14px;
 
   background: var(--color-company-50);
 
