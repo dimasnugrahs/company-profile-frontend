@@ -3,6 +3,7 @@ import ImageCardOne from "../../assets/images/products-1.jpg";
 import ImageCardTwo from "../../assets/images/products-2.jpg";
 import ImageCardThree from "../../assets/images/products-3.jpg";
 import ImageCardFourth from "../../assets/images/products-4.jpg";
+import { Link } from "react-router-dom";
 
 const ServicesSection = () => {
   const services = [
@@ -47,26 +48,27 @@ const ServicesSection = () => {
       {/* Grid Layout untuk Card */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
         {services.map((service) => (
-          <div
-            key={service.id}
-            className="rounded overflow-hidden shadow-lg bg-company-50 pb-8"
-          >
-            <img
-              className="w-full h-48 object-cover"
-              src={service.image}
-              alt="Product Images"
-            />
-            <div className="px-6 py-4">
-              <div className="font-bold text-xl mb-2 text-company-950">
-                {service.title}
+          <Link to="/services">
+            <div
+              key={service.id}
+              className="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl bg-company-50 pb-8"
+            >
+              <img
+                className="w-full h-48 object-cover"
+                src={service.image}
+                alt="Product Images"
+              />
+              <div className="px-6 py-4">
+                <div className="font-bold text-xl mb-2 text-company-950">
+                  {service.title}
+                </div>
+                <p className="text-company-950">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Voluptatibus quia, nulla! Maiores et perferendis eaque,
+                  exercitationem praesentium nihil.
+                </p>
               </div>
-              <p className="text-company-950">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptatibus quia, nulla! Maiores et perferendis eaque,
-                exercitationem praesentium nihil.
-              </p>
-            </div>
-            {/* <div className="px-6 pt-4 pb-2">
+              {/* <div className="px-6 pt-4 pb-2">
               {service.tags.map((tag, index) => (
                 <span
                   key={index}
@@ -76,7 +78,8 @@ const ServicesSection = () => {
                 </span>
               ))}
             </div> */}
-          </div>
+            </div>
+          </Link>
         ))}
       </div>
     </LayoutBackgroundCompany>

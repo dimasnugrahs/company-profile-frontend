@@ -51,7 +51,7 @@ const WhyChooseUsSection = () => {
               className="h-96 bg-cover bg-center"
               style={{ backgroundImage: `url(${card.image})` }}
             ></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-blue-600 to-transparent opacity-70"></div>
+            <div className="absolute inset-0 hover:bg-gradient-b hover:from-company-950 hover:opacity-60 bg-gradient-to-t from-blue-600 to-transparent opacity-70"></div>
             <div className="absolute bottom-0 w-full text-white text-center py-4 text-[20px]">
               {card.title}
             </div>
