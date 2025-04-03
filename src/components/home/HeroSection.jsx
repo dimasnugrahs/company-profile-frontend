@@ -5,7 +5,7 @@ const HeroSection = () => {
   return (
     <div className="flex flex-col lg:flex-row items-center justify-between bg-gray-100 w-full min-h-screen lg:px-32 px-6 ">
       <div className="lg:w-1/2 text-center lg:text-left space-y-6 lg:pt-0 pt-24">
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-inter font-black text-company-950">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-inter-black text-company-950 leading-11 lg:mb-4">
           Solusi Keuangan Anda Lebih Mudah, Cepat dan Terpercaya
         </h1>
         <p className="text-company-950 lg:text-lg">
