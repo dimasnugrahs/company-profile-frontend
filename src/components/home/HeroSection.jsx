@@ -8,8 +8,9 @@ const HeroSection = () => {
     <div className="flex flex-col lg:flex-row items-center justify-between bg-gray-100 w-full min-h-screen lg:px-32 px-6 ">
       <motion.div
         className="lg:w-1/2 text-center lg:text-left space-y-6 lg:pt-0 pt-24"
-        initial={{ opacity: 0, x: -100 }} // dari kanan (x positif)
-        animate={{ opacity: 1, x: 0 }} // ke posisi normal
+        initial={{ opacity: 0, x: -100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 1, ease: "easeOut" }}
       >
         <h1 className="text-4xl lg:text-5xl font-inter-black text-company-950 leading-11 lg:mb-4 mb-2">
@@ -35,8 +36,9 @@ const HeroSection = () => {
       </motion.div>
       <motion.div
         className="lg:w-1/2 flex justify-center mb-16 mt-0 lg:mt-0"
-        initial={{ opacity: 0, x: 100 }} // dari kanan (x positif)
-        animate={{ opacity: 1, x: 0 }} // ke posisi normal
+        initial={{ opacity: 0, x: 100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 1, ease: "easeOut" }}
       >
         <img

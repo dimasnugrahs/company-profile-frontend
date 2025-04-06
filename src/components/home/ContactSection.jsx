@@ -2,6 +2,9 @@ import iconCompany from "../../assets/icons/logo-dim-01.svg";
 import { Link, useLocation } from "react-router-dom";
 import LayoutBackgroundCompany from "./_components/LayoutBackgroundCompany";
 
+// eslint-disable-next-line
+import { motion } from "motion/react";
+
 const ContactSection = () => {
   const location = useLocation();
 
@@ -16,17 +19,28 @@ const ContactSection = () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-24">
           <div className="lg:flex lg:items-center lg:mb-0 mb-10">
-            <div className="">
+            <motion.div
+              initial={{ opacity: 0, y: -50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
               <h4 className="text-company-50 leading-6 mb-4 lg:text-left text-center">
                 Contact Us
               </h4>
               <h2 className="text-company-50 font-inter-black text-3xl lg:text-5xl font-semibold lg:mb-36 mb-2 lg:text-left text-center">
                 Temukan dan Hubungi Kami
               </h2>
-            </div>
+            </motion.div>
           </div>
           <div className="lg:max-w-xl w-full flex items-center justify-center ">
-            <div className="">
+            <motion.div
+              className=""
+              initial={{ opacity: 0, y: -50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
               <div className="lg:w-96 w-auto h-auto bg-white shadow-xl lg:py-10 lg:px-12 p-4 rounded-md">
                 <Link
                   to="/"
@@ -189,7 +203,7 @@ const ContactSection = () => {
                   </Link>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

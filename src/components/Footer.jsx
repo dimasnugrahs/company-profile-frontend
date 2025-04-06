@@ -1,10 +1,19 @@
 import iconCompany from "../assets/icons/logo-dim-01.svg";
 import { Link } from "react-router-dom";
 
+// eslint-disable-next-line
+import { motion } from "motion/react";
+
 const Footer = () => {
   return (
     <footer className="bg-company-950">
-      <div className="mx-auto w-full px-6 lg:px-32 py-6 lg:py-8">
+      <motion.div
+        className="mx-auto w-full px-6 lg:px-32 py-6 lg:py-8"
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0 mr-5">
             <Link to="https://flowbite.com/" className="flex items-center">
@@ -189,7 +198,7 @@ const Footer = () => {
             serta Bank Peserta Penjaminan LPS
           </span>
         </div>
-      </div>
+      </motion.div>
     </footer>
   );
 };
