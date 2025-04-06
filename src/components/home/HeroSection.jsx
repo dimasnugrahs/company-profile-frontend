@@ -1,10 +1,17 @@
 import { Link } from "react-router-dom";
 import HeroSectionFirst from "../../assets/images/hero-section-1.png";
+// eslint-disable-next-line
+import { motion } from "motion/react";
 
 const HeroSection = () => {
   return (
     <div className="flex flex-col lg:flex-row items-center justify-between bg-gray-100 w-full min-h-screen lg:px-32 px-6 ">
-      <div className="lg:w-1/2 text-center lg:text-left space-y-6 lg:pt-0 pt-24">
+      <motion.div
+        className="lg:w-1/2 text-center lg:text-left space-y-6 lg:pt-0 pt-24"
+        initial={{ opacity: 0, x: -100 }} // dari kanan (x positif)
+        animate={{ opacity: 1, x: 0 }} // ke posisi normal
+        transition={{ duration: 1, ease: "easeOut" }}
+      >
         <h1 className="text-4xl lg:text-5xl font-inter-black text-company-950 leading-11 lg:mb-4 mb-2">
           Solusi Keuangan Anda Lebih Mudah, Cepat dan Terpercaya
         </h1>
@@ -25,14 +32,19 @@ const HeroSection = () => {
             </button>
           </Link>
         </div>
-      </div>
-      <div className="lg:w-1/2 flex justify-center mb-16 mt-0 lg:mt-0">
+      </motion.div>
+      <motion.div
+        className="lg:w-1/2 flex justify-center mb-16 mt-0 lg:mt-0"
+        initial={{ opacity: 0, x: 100 }} // dari kanan (x positif)
+        animate={{ opacity: 1, x: 0 }} // ke posisi normal
+        transition={{ duration: 1, ease: "easeOut" }}
+      >
         <img
           src={HeroSectionFirst}
           alt="Illustration"
           className="w-full max-w-sm sm:max-w-md lg:max-w-lg"
         />
-      </div>
+      </motion.div>
     </div>
   );
 };
