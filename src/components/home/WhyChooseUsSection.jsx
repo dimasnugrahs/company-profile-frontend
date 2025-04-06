@@ -4,7 +4,31 @@ import ImageCardTwo from "../../assets/images/why-2.jpg";
 import ImageCardThree from "../../assets/images/why-3.jpg";
 import ImageCardFourth from "../../assets/images/why-4.jpg";
 
+// eslint-disable-next-line
+import { motion, useInView } from "motion/react";
+import { useRef } from "react";
+
 const WhyChooseUsSection = () => {
+  const cardRef = useRef(null);
+  const isInView = useInView(cardRef, { once: true }); // hanya jalan sekali
+
+  const titleRef = useRef(null);
+  const isTitleInView = useInView(titleRef, { once: true });
+
+  const containerVariants = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.2, // jarak antar animasi tiap card
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, x: -50 }, // dari kiri
+    show: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  };
+
   const cards = [
     {
       id: 1,
@@ -31,19 +55,38 @@ const WhyChooseUsSection = () => {
   return (
     <LayoutCompany>
       <div>
-        <h1 className="text-4xl text-company-950 font-inter-black text-center">
+        <motion.h1
+          ref={titleRef}
+          className="text-4xl text-company-950 font-inter-black text-center"
+          initial={{ opacity: 0, x: 100 }}
+          animate={isTitleInView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           Kelola keuanganmu sekarang di BPR Restu Dewata
-        </h1>
-        <p className="text-company-950 text-center mt-2">
+        </motion.h1>
+        <motion.p
+          className="text-company-950 text-center mt-2"
+          ref={titleRef}
+          initial={{ opacity: 0, x: 100 }}
+          animate={isTitleInView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+        >
           Tumbuh Bersama BPR Restu Dewata, Wujudkan Keuangan yang Lebih Stabil
           dan Berkembang.
-        </p>
+        </motion.p>
       </div>
 
       {/* Grid Layout untuk Card */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-8">
+      <motion.div
+        ref={cardRef}
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-8"
+        variants={containerVariants}
+        initial="hidden"
+        animate={isInView ? "show" : "hidden"}
+      >
         {cards.map((card) => (
-          <div
+          <motion.div
+            variants={cardVariants}
             key={card.id}
             className="bg-white rounded-xl shadow-lg overflow-hidden relative hover:shadow-xl transition-all duration-300"
           >
@@ -55,9 +98,9 @@ const WhyChooseUsSection = () => {
             <div className="absolute bottom-0 w-full text-white text-center py-4 text-2xl">
               {card.title}
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </LayoutCompany>
   );
 };
