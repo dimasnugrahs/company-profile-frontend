@@ -3,10 +3,10 @@ import MainLayout from "./layouts/MainLayout";
 import ScrollToTop from "./layouts/ScrollToTop";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
+import Services from "./pages/Services";
 
 function App() {
   return (

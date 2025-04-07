@@ -10,20 +10,21 @@ const Footer = () => {
       <div className="mx-auto w-full px-6 lg:px-32 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0 mr-5">
-            <motion.Link
-              to="/"
-              className="flex items-center"
+            <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.3 }}
             >
-              <img
-                src={iconCompany}
-                className="lg:flex bg-company-50 px-2 py-2 w-44 rounded"
-                alt="Logo"
-              />
-            </motion.Link>
+              <Link to="/" className="flex items-center">
+                <img
+                  src={iconCompany}
+                  className="lg:flex bg-company-50 px-2 py-2 w-44 rounded"
+                  alt="Logo"
+                />
+              </Link>
+            </motion.div>
+
             <div className="lg:ml-14 ">
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
