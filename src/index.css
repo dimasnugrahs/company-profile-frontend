@@ -38,6 +38,4 @@ body {
   font-family: var(--font-display);
 
   background: var(--color-company-50);
-
-  overflow-x: hidden;
 }
