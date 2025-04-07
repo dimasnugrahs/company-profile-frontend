@@ -39,8 +39,5 @@ body {
 
   background: var(--color-company-50);
 
-  .container-content {
-    margin-left: 35px;
-    margin-right: 35px;
-  }
+  overflow-x: hidden;
 }
