@@ -1,6 +1,6 @@
 const Breadcrumbs = ({ items }) => {
   return (
-    <nav className="">
+    <nav className="overflow-x-hidden">
       <ol className="flex items-center space-x-1">
         {items.map((item, index) => (
           <li key={index} className="flex items-center">
@@ -8,7 +8,10 @@ const Breadcrumbs = ({ items }) => {
               <span className="mx-4 text-gray-400">{">"}</span> // atau '›'
             )}
             {item.href ? (
-              <a href={item.href} className="hover:text-company-950 text-company-600">
+              <a
+                href={item.href}
+                className="hover:text-company-950 text-company-600"
+              >
                 {item.label}
               </a>
             ) : (

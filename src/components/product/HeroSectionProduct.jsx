@@ -1,5 +1,8 @@
 import ProductImage from "../../assets/images/product-details.jpg";
 
+// eslint-disable-next-line
+import { motion } from "motion/react";
+
 const HeroSectionProduct = () => {
   const products = [
     {
@@ -46,24 +49,56 @@ const HeroSectionProduct = () => {
   ];
 
   return (
-    <div className="overflow-x-hidden py-20">
+    <div className="py-20">
       {products.map((product) => (
         <div key={product.id}>
-          <h1 className="font-inter-black text-4xl">{product.title}</h1>
-          <p className="text-gray-500">{product.subtitle}</p>
-          <img
+          <motion.h1
+            className="font-inter-black text-4xl"
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: 0 }}
+          >
+            {product.title}
+          </motion.h1>
+          <motion.p
+            className="text-gray-500"
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+          >
+            {product.subtitle}
+          </motion.p>
+          <motion.img
             src={product.image}
-            className="w-full h-auto max-h-[400px] mt-6 rounded-lg shadow-lg object-cover"
+            className="w-full h-auto max-h-[500px] mt-6 rounded-lg shadow-lg object-cover"
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           />
 
-          <p className="mt-8">{product.description}</p>
+          <motion.p
+            className="mt-8"
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            {product.description}
+          </motion.p>
         </div>
       ))}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-24">
         {cards.map((card, index) => (
-          <div
+          <motion.div
             key={index}
             className="bg-gradient-to-b from-white to-company-400 shadow-lg rounded-xl p-6"
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: card.id * 0.4 }}
           >
             <h2 className="text-xl font-semibold text-company-950 mb-4 mt-4">
               {card.title}
@@ -73,7 +108,7 @@ const HeroSectionProduct = () => {
                 <li key={idx}>{item}</li>
               ))}
             </ul>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
