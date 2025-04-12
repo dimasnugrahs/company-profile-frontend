@@ -11,8 +11,8 @@ const AboutSection = () => {
           <div>
             <motion.h1
               className="text-4xl text-company-950 font-inter-black text-center"
-              initial={{ opacity: 0, y: -50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.3 }}
             >
@@ -20,8 +20,8 @@ const AboutSection = () => {
             </motion.h1>
             <motion.p
               className="text-company-950 text-center lg:mt-2 mt-4 mb-8"
-              initial={{ opacity: 0, y: -50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
               viewport={{ once: true, amount: 0.3 }}
             >
