@@ -1,8 +1,12 @@
 import AboutSection from "../components/about/AboutSection";
 import ManagementSection from "../components/about/ManagementSection";
+import PartnerSection from "../components/about/PartnerSection";
+import ReportSection from "../components/about/ReportSection";
 import VisiMisiSection from "../components/about/VisiMisiSection";
 import Breadcrumbs from "../components/Breadcrumbs";
 import LayouDefaultContent from "../layouts/LayoutDefaultContent";
+import ContactSection from "../components/home/ContactSection";
+import LocationSection from "../components/about/LocationSection";
 
 export default function About() {
   return (
@@ -18,6 +22,10 @@ export default function About() {
       </LayouDefaultContent>
       <VisiMisiSection />
       <ManagementSection />
+      <PartnerSection />
+      <ReportSection />
+      <ContactSection />
+      <LocationSection />
     </>
   );
 }
