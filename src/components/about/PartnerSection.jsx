@@ -13,7 +13,7 @@ const PartnerSection = () => {
 
   return (
     <LayoutBackgroundCompany>
-      <div className="flex flex-wrap justify-center items-center gap-24">
+      <div className="flex flex-wrap justify-center items-center gap-24 overflow-x-hidden">
         {vendors.map((vendor, index) => (
           <motion.div
             key={vendor.id}
