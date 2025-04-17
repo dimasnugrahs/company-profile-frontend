@@ -49,7 +49,7 @@ const HeroSectionProduct = () => {
   ];
 
   return (
-    <div className="py-20">
+    <div className="py-20 overflow-x-hidden">
       {products.map((product) => (
         <div key={product.id}>
           <motion.h1

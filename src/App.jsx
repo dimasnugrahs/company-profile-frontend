@@ -8,6 +8,8 @@ import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
 import Services from "./pages/Services";
 import Report from "./pages/Report";
+import BlogDetails from "./pages/BlogDetails";
+import BlogDetailSection from "./components/blog/BlogDetailSection";
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/report" element={<Report />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/details" element={<BlogDetails />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </MainLayout>
