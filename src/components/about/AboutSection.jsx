@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 
 const AboutSection = () => {
   return (
-    <div className="pt-20 overflow-x-hidden">
+    <div className="py-20 overflow-x-hidden">
       <div className="mx-auto">
         <div className="gap-12 items-center mx-auto max-w-screen-xl lg:grid lg:grid-cols-2">
           <div className="lg:w-full flex justify-center mx-auto">

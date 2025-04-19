@@ -1,7 +1,11 @@
 import React from "react";
 import LayoutCompany from "../home/_components/LayoutCompany";
+import PdfFile from "../../assets/files/sample.pdf";
 
 const ReportSection = () => {
+  const handleOpenPdf = () => {
+    window.open(PdfFile, "_blank");
+  };
   return (
     <LayoutCompany>
       <div className="max-w-4xl">
@@ -28,14 +32,12 @@ const ReportSection = () => {
               className="flex justify-between items-center py-3 border-b last:border-b-0"
             >
               <span className="text-sm md:text-base">{judul}</span>
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm px-4 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded-md"
+              <button
+                onClick={handleOpenPdf}
+                className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
               >
                 Lihat PDF
-              </a>
+              </button>
             </div>
           ))}
         </div>
