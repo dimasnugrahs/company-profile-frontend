@@ -15,7 +15,7 @@ import BlogDetails from "./pages/BlogDetails";
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <Router>
         <MainLayout>
           <ScrollToTop />
           <Routes>
@@ -29,7 +29,7 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </MainLayout>
-      </BrowserRouter>
+      </Router>
     </>
   );
 }
