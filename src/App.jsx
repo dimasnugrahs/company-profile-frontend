@@ -8,9 +8,10 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
-import Services from "./pages/Services";
+import Products from "./pages/Products";
 import Report from "./pages/Report";
 import BlogDetails from "./pages/BlogDetails";
+import ProductDetail from "./components/product/ProductDetail";
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/product/:slug" element={<ProductDetail />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/report" element={<Report />} />
           <Route path="/blog" element={<Blog />} />

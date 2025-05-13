@@ -38,9 +38,9 @@ export default function Navbar() {
       name: "Layanan Kami",
       to: "#",
       subMenu: [
-        { name: "Tabungan Harian", to: "/services" },
-        { name: "Tabungan Berjangka", to: "/services" },
-        { name: "Deposito", to: "/services" },
+        { name: "Tabungan Harian", to: "/product/tabungan-harian" },
+        { name: "Tabungan Berjangka", to: "/product/tabungan-berjangka" },
+        { name: "Deposito", to: "/product/deposito" },
         { name: "Kredit Pinjaman", to: "/services" },
       ],
     },
