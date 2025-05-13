@@ -6,10 +6,15 @@ import products from "../../data/products";
 import { motion } from "motion/react";
 import LayouDefaultContent from "../../layouts/LayoutDefaultContent";
 import Breadcrumbs from "../Breadcrumbs";
+import { useEffect } from "react";
 
 const ProductDetail = () => {
   const { slug } = useParams();
   const product = products.find((p) => p.slug === slug);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [slug]);
 
   if (!product) {
     return <div className="p-8 text-red-500">Produk tidak ditemukan.</div>;
