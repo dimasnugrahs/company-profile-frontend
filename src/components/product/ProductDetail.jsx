@@ -15,8 +15,6 @@ const ProductDetail = () => {
     return <div className="p-8 text-red-500">Produk tidak ditemukan.</div>;
   }
 
-  
-
   const cards = [
     {
       title: "Keunggulan Produk",
@@ -55,13 +53,14 @@ const ProductDetail = () => {
       <Breadcrumbs
         items={[
           { label: "Beranda", href: "/" },
-          { label: "Tabungan Berjangka" }, // item terakhir biasanya tidak punya link
+          { label: "Product", href: "/products" },
+          { label: product.title }, // item terakhir biasanya tidak punya link
         ]}
       />
-      <div className="py-20">
+      <div className="py-20" key={slug}>
         <motion.h1
           className="font-inter-black text-4xl"
-          initial={{ opacity: 0, x: -100 }}
+          initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8, delay: 0 }}
@@ -70,7 +69,7 @@ const ProductDetail = () => {
         </motion.h1>
         <motion.p
           className="text-gray-500"
-          initial={{ opacity: 0, x: -100 }}
+          initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8, delay: 0.1 }}
@@ -80,7 +79,7 @@ const ProductDetail = () => {
         <motion.img
           src={product.image}
           className="w-full h-auto max-h-[500px] mt-6 rounded-lg shadow-lg object-cover"
-          initial={{ opacity: 0, x: -100 }}
+          initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -88,7 +87,7 @@ const ProductDetail = () => {
 
         <motion.p
           className="mt-8"
-          initial={{ opacity: 0, x: -100 }}
+          initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8, delay: 0.3 }}
@@ -100,7 +99,7 @@ const ProductDetail = () => {
             <motion.div
               key={index}
               className="bg-gradient-to-b from-white to-company-400 shadow-lg rounded-xl p-6"
-              initial={{ opacity: 0, x: -100 }}
+              initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.8, delay: card.id * 0.4 }}

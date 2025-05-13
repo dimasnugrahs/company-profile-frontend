@@ -9,7 +9,8 @@ const BlogDetails = () => {
         <Breadcrumbs
           items={[
             { label: "Beranda", href: "/" },
-            { label: "Tabungan Berjangka" }, // item terakhir biasanya tidak punya link
+            { label: "Blog", href: "/blog" },
+            { label: "Blog Detail" }, // item terakhir biasanya tidak punya link
           ]}
         />
       </LayouDefaultContent>

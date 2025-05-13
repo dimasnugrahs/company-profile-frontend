@@ -41,7 +41,7 @@ export default function Navbar() {
         { name: "Tabungan Harian", to: "/product/tabungan-harian" },
         { name: "Tabungan Berjangka", to: "/product/tabungan-berjangka" },
         { name: "Deposito", to: "/product/deposito" },
-        { name: "Kredit Pinjaman", to: "/services" },
+        { name: "Kredit Pinjaman", to: "/product/kredit" },
       ],
     },
     { name: "Laporan Publikasi", to: "/report", subMenu: null },
