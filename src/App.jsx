@@ -15,21 +15,19 @@ import BlogDetails from "./pages/BlogDetails";
 function App() {
   return (
     <>
-      <Router>
-        <MainLayout>
-          <ScrollToTop />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/report" element={<Report />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/details" element={<BlogDetails />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </MainLayout>
-      </Router>
+      <MainLayout>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/report" element={<Report />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/details" element={<BlogDetails />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </MainLayout>
     </>
   );
 }
