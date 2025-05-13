@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import iconCompany from "../assets/icons/logo-dim-01.svg";
+import iconCompany from "../../assets/icons/logo-dim-01.svg";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

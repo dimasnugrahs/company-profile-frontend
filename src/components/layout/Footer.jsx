@@ -1,4 +1,4 @@
-import iconCompany from "../assets/icons/logo-dim-01.svg";
+import iconCompany from "../../assets/icons/logo-dim-01.svg";
 import { Link } from "react-router-dom";
 
 // eslint-disable-next-line
