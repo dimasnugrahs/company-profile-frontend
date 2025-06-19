@@ -1,10 +1,12 @@
 import React from "react";
-import LayoutCompany from "../home/_components/LayoutCompany";
+import LayoutDefaultContent from "../../layouts/LayoutDefaultContent";
 import { Link } from "react-router-dom";
 import ImageCardOne from "../../assets/images/products-1.jpg";
 
+import Breadcrumbs from "../Breadcrumbs";
+
 // eslint-disable-next-line
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 const BlogSection = () => {
   const articles = [
@@ -94,49 +96,66 @@ const BlogSection = () => {
     },
   ];
   return (
-    <LayoutCompany>
-      <div className="overflow-x-hidden">
-        <div className="max-w-7xl mx-auto px-4 py-10">
-          {/* Dropdown & Title */}
-          <div className="flex justify-between items-center mb-6">
-            <h1 className="text-2xl font-bold text-gray-800">
-              Artikel Terbaru
-            </h1>
-            <select className="bg-blue-600 text-white px-4 py-2 rounded-md font-medium focus:outline-none">
-              <option>Cari berdasarkan kategori</option>
-              <option>Berita</option>
-              <option>Tips</option>
-              <option>IT</option>
-            </select>
-          </div>
+    <LayoutDefaultContent>
+      <Breadcrumbs
+        items={[
+          { label: "Beranda", href: "/" },
+          { label: "Blog" }, // item terakhir biasanya tidak punya link
+        ]}
+      />
+      <div className="max-w-7xl mx-auto py-20">
+        {/* Dropdown & Title */}
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6">
+          <motion.h1
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            className="font-inter-black text-4xl"
+          >
+            Artikel Terbaru
+          </motion.h1>
+          <motion.select
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            className="bg-blue-600 text-white px-4 py-2 rounded-md font-medium focus:outline-none"
+          >
+            <option>Cari berdasarkan kategori</option>
+            <option>Berita</option>
+            <option>Tips</option>
+            <option>IT</option>
+          </motion.select>
+        </div>
 
-          {/* Artikel Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {articles.map((article) => (
-              <Link to="/blog/details" key={article.id}>
-                <motion.div
-                  className="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl bg-company-50 pb-8"
-                  initial={{ opacity: 0, x: -100 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.8, delay: article.id * 0.2 }}
-                >
-                  <img
-                    className="w-full h-48 object-cover"
-                    src={article.image}
-                    alt="Product Images"
-                  />
-                  <div className="px-6 py-4">
-                    <div className="font-bold text-xl mb-2 text-company-950">
-                      {article.title}
-                    </div>
-                    <p className="text-company-950">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Voluptatibus quia, nulla! Maiores et perferendis eaque,
-                      exercitationem praesentium nihil.
-                    </p>
+        {/* Artikel Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {articles.map((article) => (
+            <Link to="/blog/details" key={article.id}>
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 1, delay: article.id * 0.3 }}
+                className="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl bg-company-50 pb-8"
+              >
+                <img
+                  className="w-full h-48 object-cover"
+                  src={article.image}
+                  alt="Product Images"
+                />
+                <div className="px-6 py-4">
+                  <div className="font-bold text-xl mb-2 text-company-950">
+                    {article.title}
                   </div>
-                  {/* <div className="px-6 pt-4 pb-2">
+                  <p className="text-company-950">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Voluptatibus quia, nulla! Maiores et perferendis eaque,
+                    exercitationem praesentium nihil.
+                  </p>
+                </div>
+                {/* <div className="px-6 pt-4 pb-2">
               {article.tags.map((tag, index) => (
                 <span
                   key={index}
@@ -146,13 +165,12 @@ const BlogSection = () => {
                 </span>
               ))}
             </div> */}
-                </motion.div>
-              </Link>
-            ))}
-          </div>
+              </motion.div>
+            </Link>
+          ))}
         </div>
       </div>
-    </LayoutCompany>
+    </LayoutDefaultContent>
   );
 };
 

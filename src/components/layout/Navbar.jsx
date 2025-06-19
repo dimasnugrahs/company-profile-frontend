@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import iconCompany from "../../assets/icons/logo-dim-01.svg";
 
+// eslint-disable-next-line
+import { motion } from "framer-motion";
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [navbarBg, setNavbarBg] = useState(false);
@@ -56,7 +59,12 @@ export default function Navbar() {
     >
       <div className="mx-auto">
         <div className="flex items-center justify-between py-2 px-6 lg:px-0 lg:py-0">
-          <ul>
+          <motion.ul
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 1 }}
+          >
             <Link
               to="/"
               className="flex-shrink-0"
@@ -64,10 +72,17 @@ export default function Navbar() {
             >
               <img src={iconCompany} alt="Icon" className="lg:w-44 w-36" />
             </Link>
-          </ul>
+          </motion.ul>
           <div className="hidden lg:flex flex-grow justify-center space-x-4">
             {menus.map((menu, index) => (
-              <div key={index} className="relative group py-4">
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 1 }}
+                key={index}
+                className="relative group py-4"
+              >
                 <ul>
                   {menu.subMenu ? (
                     <Link
@@ -104,10 +119,16 @@ export default function Navbar() {
                     </div>
                   )}
                 </ul>
-              </div>
+              </motion.div>
             ))}
           </div>
-          <div className="hidden lg:flex">
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 1 }}
+            className="hidden lg:flex"
+          >
             <ul>
               <Link
                 to="/contact"
@@ -116,7 +137,7 @@ export default function Navbar() {
                 Kontak kami
               </Link>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Trigger button navbar mobile */}
           <div className="lg:hidden">

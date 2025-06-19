@@ -1,8 +1,8 @@
-import LayoutCompany from "../home/_components/LayoutCompany";
+import LayoutDefaultContent from "../../layouts/LayoutDefaultContent";
 import imgReport from "../../assets/images/why-1.jpg";
 
 // eslint-disable-next-line
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 const ReportSection = () => {
   const reports = [
@@ -11,37 +11,32 @@ const ReportSection = () => {
     { id: 3, title: "Struktur Organisasi", image: imgReport },
   ];
   return (
-    <LayoutCompany>
-      <div className="overflow-x-hidden">
-        <motion.h2
-          className="text-4xl text-company-950 font-inter-black text-center"
-          initial={{ opacity: 0, x: 100 }}
+    <LayoutDefaultContent>
+      <div className="">
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1 }}
         >
-          Laporan Perusahaan
-        </motion.h2>
-        <motion.p
-          className="text-company-950 text-center mt-2"
-          initial={{ opacity: 0, x: 100 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        >
-          BPR Restu Dewata adalah mitra finansial yang siap membantu Anda tumbuh
-          dan berkembang.
-        </motion.p>
+          <h2 className="text-4xl text-company-950 font-inter-black text-center">
+            Laporan Perusahaan
+          </h2>
+          <p className="text-company-950 text-center mt-2">
+            BPR Dim Nugraha adalah mitra finansial yang siap membantu Anda
+            tumbuh dan berkembang.
+          </p>
+        </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 py-8">
-          {reports.map((report, index) => (
+          {reports.map((report) => (
             <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 1, delay: report.id * 0.3 }}
               key={report.id}
               className="relative overflow-hidden rounded-xl shadow-lg group cursor-pointer"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              viewport={{ once: true }}
             >
               <img
                 src={report.image}
@@ -55,7 +50,7 @@ const ReportSection = () => {
           ))}
         </div>
       </div>
-    </LayoutCompany>
+    </LayoutDefaultContent>
   );
 };
 

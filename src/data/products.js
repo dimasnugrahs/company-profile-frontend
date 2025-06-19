@@ -30,7 +30,7 @@ const products = [
   },
   {
     slug: "kredit",
-    id: 3,
+    id: 4,
     image: ProductImage,
     title: "Kredit Pinjaman",
     subtitle: "Wujudkan Impian, Deposito Pasti, Masa Depan Terjamin!",

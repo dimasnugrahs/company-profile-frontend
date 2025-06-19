@@ -12,6 +12,7 @@ import Products from "./pages/Products";
 import Report from "./pages/Report";
 import BlogDetails from "./pages/BlogDetails";
 import ProductDetail from "./components/product/ProductDetail";
+import CalcSection from "./components/calc/CalcSection";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/report" element={<Report />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/details" element={<BlogDetails />} />
+          <Route path="/simulation" element={<CalcSection />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </MainLayout>

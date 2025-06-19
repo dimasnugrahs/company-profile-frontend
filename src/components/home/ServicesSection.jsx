@@ -1,4 +1,4 @@
-import LayoutBackgroundCompany from "./_components/LayoutBackgroundCompany";
+import LayoutBackgroundCompany from "../../layouts/LayoutBackgroundCompany";
 import ImageCardOne from "../../assets/images/products-1.jpg";
 import ImageCardTwo from "../../assets/images/products-2.jpg";
 import ImageCardThree from "../../assets/images/products-3.jpg";
@@ -7,7 +7,7 @@ import products from "../../data/products";
 import { Link } from "react-router-dom";
 
 // eslint-disable-next-line
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 const ServicesSection = () => {
   // const services = [
@@ -39,56 +39,48 @@ const ServicesSection = () => {
 
   return (
     <LayoutBackgroundCompany>
-      <div className="overflow-x-hidden">
-        <div>
-          <motion.h1
-            className="text-4xl text-company-50 font-inter-black text-center"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
-          >
-            Pilihan tepat untuk pertumbuhan keuangan Anda
-          </motion.h1>
-          <motion.p
-            className="text-company-50 text-center mt-2"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            Tumbuh Bersama BPR Restu Dewata, Wujudkan Keuangan yang Lebih Stabil
-            dan Berkembang.
-          </motion.p>
-        </div>
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 1 }}
+      >
+        <h1 className="text-4xl text-company-50 font-inter-black text-center">
+          Pilihan tepat untuk pertumbuhan keuangan Anda
+        </h1>
+        <p className="text-company-50 text-center mt-2">
+          Tumbuh Bersama BPR Restu Dewata, Wujudkan Keuangan yang Lebih Stabil
+          dan Berkembang.
+        </p>
+      </motion.div>
 
-        {/* Grid Layout untuk Card */}
-        <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
-          {products.map((product) => (
-            <Link to={`/product/${product.slug}`} key={product.slug}>
-              <motion.div
-                className="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl bg-company-50 pb-8"
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.8, delay: product.id * 0.2 }}
-              >
-                <img
-                  className="w-full h-48 object-cover"
-                  src={product.image}
-                  alt="Product Images"
-                />
-                <div className="px-6 py-4">
-                  <div className="font-bold text-xl mb-2 text-company-950">
-                    {product.title}
-                  </div>
-                  <p className="text-company-950">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Voluptatibus quia, nulla! Maiores et perferendis eaque,
-                    exercitationem praesentium nihil.
-                  </p>
+      {/* Grid Layout untuk Card */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+        {products.map((product) => (
+          <Link to={`/product/${product.slug}`} key={product.slug}>
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.8, delay: product.id * 0.3 }}
+              className="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl bg-company-50 pb-8"
+            >
+              <img
+                className="w-full h-48 object-cover"
+                src={product.image}
+                alt="Product Images"
+              />
+              <div className="px-6 py-4">
+                <div className="font-bold text-xl mb-2 text-company-950">
+                  {product.title}
                 </div>
-                {/* <div className="px-6 pt-4 pb-2">
+                <p className="text-company-950">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Voluptatibus quia, nulla! Maiores et perferendis eaque,
+                  exercitationem praesentium nihil.
+                </p>
+              </div>
+              {/* <div className="px-6 pt-4 pb-2">
               {service.tags.map((tag, index) => (
                 <span
                   key={index}
@@ -98,10 +90,9 @@ const ServicesSection = () => {
                 </span>
               ))}
             </div> */}
-              </motion.div>
-            </Link>
-          ))}
-        </motion.div>
+            </motion.div>
+          </Link>
+        ))}
       </div>
     </LayoutBackgroundCompany>
   );

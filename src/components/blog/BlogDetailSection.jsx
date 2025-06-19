@@ -1,8 +1,7 @@
 import ProductImage from "../../assets/images/product-details.jpg";
 
 // eslint-disable-next-line
-import { motion } from "motion/react";
-import LayoutCompany from "../home/_components/LayoutCompany";
+import { motion } from "framer-motion";
 
 const BlogDetailSection = () => {
   const blogs = [
@@ -19,50 +18,48 @@ const BlogDetailSection = () => {
   ];
 
   return (
-    <LayoutCompany>
-      <div className="overflow-x-hidden">
-        {blogs.map((blog) => (
-          <div key={blog.id}>
-            <motion.h1
-              className="font-inter-black text-4xl"
-              initial={{ opacity: 0, x: -100 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.8, delay: 0 }}
-            >
-              {blog.title}
-            </motion.h1>
-            <motion.p
-              className="text-gray-500"
-              initial={{ opacity: 0, x: -100 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-            >
-              {blog.administrator} - {blog.date} - {blog.category}
-            </motion.p>
-            <motion.img
-              src={blog.image}
-              className="w-full h-auto max-h-[500px] mt-6 rounded-lg shadow-lg object-cover"
-              initial={{ opacity: 0, x: -100 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            />
+    <div className="py-20">
+      {blogs.map((blog) => (
+        <div key={blog.id}>
+          <motion.h1
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 1 }}
+            className="font-inter-black text-4xl"
+          >
+            {blog.title}
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            className="text-gray-500"
+          >
+            {blog.administrator} - {blog.date} - {blog.category}
+          </motion.p>
+          <motion.img
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            src={blog.image}
+            className="w-full h-auto max-h-[500px] mt-6 rounded-lg shadow-lg object-cover"
+          />
 
-            <motion.p
-              className="mt-8"
-              initial={{ opacity: 0, x: -100 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-            >
-              {blog.description}
-            </motion.p>
-          </div>
-        ))}
-      </div>
-    </LayoutCompany>
+          <motion.p
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 1, delay: 0.0 }}
+            className="mt-8"
+          >
+            {blog.description}
+          </motion.p>
+        </div>
+      ))}
+    </div>
   );
 };
 

@@ -1,9 +1,11 @@
 import iconCompany from "../../assets/icons/logo-dim-01.svg";
 import { Link, useLocation } from "react-router-dom";
-import LayoutCompany from "../home/_components/LayoutCompany";
+import LayoutDefaultContent from "../../layouts/LayoutDefaultContent";
+
+import Breadcrumbs from "../Breadcrumbs";
 
 // eslint-disable-next-line
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 const ContactSection = () => {
   const location = useLocation();
@@ -15,16 +17,22 @@ const ContactSection = () => {
   };
 
   return (
-    <LayoutCompany>
-      <div className="overflow-x-hidden mt-26 mb-20">
+    <LayoutDefaultContent>
+      <Breadcrumbs
+        items={[
+          { label: "Beranda", href: "/" },
+          { label: "Kontak Kami" }, // item terakhir biasanya tidak punya link
+        ]}
+      />
+      <div className="mt-26 mb-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-24">
             <div className="lg:flex lg:items-center lg:mb-0 mb-10">
               <motion.div
-                initial={{ opacity: 0, y: -50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 1 }}
               >
                 <h4 className="text-company-500 leading-6 mb-4 lg:text-left text-center">
                   Contact Us
@@ -34,14 +42,14 @@ const ContactSection = () => {
                 </h2>
               </motion.div>
             </div>
-            <div className="lg:max-w-xl w-full flex items-center justify-center ">
-              <motion.div
-                className=""
-                initial={{ opacity: 0, y: -50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-                viewport={{ once: true, amount: 0.3 }}
-              >
+            <motion.div
+              initial={{ opacity: 0, y: -50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 1 }}
+              className="lg:max-w-xl w-full flex items-center justify-center "
+            >
+              <div className="">
                 <div className="lg:w-96 w-auto h-auto bg-white shadow-xl lg:py-10 lg:px-12 p-4 rounded-md">
                   <Link
                     to="/"
@@ -204,12 +212,12 @@ const ContactSection = () => {
                     </Link>
                   </div>
                 </div>
-              </motion.div>
-            </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>
-    </LayoutCompany>
+    </LayoutDefaultContent>
   );
 };
 

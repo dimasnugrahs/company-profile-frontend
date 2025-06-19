@@ -1,9 +1,9 @@
-import LayoutBackgroundCompany from "../home/_components/LayoutBackgroundCompany";
+import LayoutBackgroundCompany from "../../layouts/LayoutBackgroundCompany";
 import Vendor1 from "../../assets/images/logo-bpr.png";
 import Vendor2 from "../../assets/images/logo-lps.png";
 
 // eslint-disable-next-line
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 const PartnerSection = () => {
   const vendors = [
@@ -14,14 +14,14 @@ const PartnerSection = () => {
   return (
     <LayoutBackgroundCompany>
       <div className="flex flex-wrap justify-center items-center gap-24 overflow-x-hidden">
-        {vendors.map((vendor, index) => (
+        {vendors.map((vendor) => (
           <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 1 }}
             key={vendor.id}
             className="flex justify-center items-center"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: index * 0.1 }}
           >
             <img
               src={vendor.logo}

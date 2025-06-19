@@ -13,8 +13,9 @@ const BlogDetails = () => {
             { label: "Blog Detail" }, // item terakhir biasanya tidak punya link
           ]}
         />
+        <BlogDetailSection />
       </LayouDefaultContent>
-      <BlogDetailSection />
+      
     </div>
   );
 };

@@ -10,11 +10,11 @@ const Report = () => {
         <Breadcrumbs
           items={[
             { label: "Beranda", href: "/" },
-            { label: "Tentang Perusahaan" },
+            { label: "Laporan Perusahaan" },
           ]}
         />
+        <ReportSection />
       </LayouDefaultContent>
-      <ReportSection />
     </>
   );
 };

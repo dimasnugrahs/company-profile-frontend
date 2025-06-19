@@ -2,7 +2,7 @@ import iconCompany from "../../assets/icons/logo-dim-01.svg";
 import { Link } from "react-router-dom";
 
 // eslint-disable-next-line
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 const Footer = () => {
   return (
@@ -13,8 +13,8 @@ const Footer = () => {
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 1 }}
             >
               <Link to="/" className="flex items-center">
                 <img
@@ -27,10 +27,10 @@ const Footer = () => {
 
             <div className="lg:ml-14 ">
               <motion.div
-                initial={{ opacity: 0, x: -100 }}
+                initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
                 viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 1, delay: 0.0 }}
               >
                 <p className="mt-10 mb-2 lg:mb-0 lg:mt-6 font-semibold uppercase text-company-50">
                   Lokasi Kantor Pusat - BPR Restu Dewata
@@ -43,8 +43,8 @@ const Footer = () => {
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
                 viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 1, delay: 0.3 }}
               >
                 <p className="mt-10 mb-2 lg:mb-0 lg:mt-6  font-semibold  uppercase text-company-50">
                   Lokasi Kantor Cabang - BPR Restu Dewata
@@ -57,8 +57,8 @@ const Footer = () => {
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 0.7 }}
                 viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 1, delay: 0.5 }}
               >
                 <p className="mt-10 mb-2 lg:mb-0 lg:mt-6  font-semibold  uppercase text-company-50">
                   Lokasi Kantor Kas - BPR Restu Dewata
@@ -71,8 +71,8 @@ const Footer = () => {
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 0.9 }}
                 viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 1, delay: 0.7 }}
               >
                 <p className="lg:mt-6 mt-6 text-slate-400">Senin - Jumat</p>
                 <p className="text-slate-400">08.00 WITA - 17.00 WITA</p>
@@ -80,22 +80,14 @@ const Footer = () => {
             </div>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-            <div>
-              <motion.h2
-                className="mb-6 uppercase text-company-50"
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                viewport={{ once: true, amount: 0.3 }}
-              >
-                Tentang Kami
-              </motion.h2>
-              <motion.ul
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-                viewport={{ once: true, amount: 0.3 }}
-              >
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 1, delay: 0.0 }}
+            >
+              <h2 className="mb-6 uppercase text-company-50">Tentang Kami</h2>
+              <ul>
                 <li className="mb-4">
                   <Link
                     to="https://github.com/themesberg/flowbite"
@@ -105,134 +97,87 @@ const Footer = () => {
                     Perusahaan
                   </Link>
                 </li>
-              </motion.ul>
-            </div>
+              </ul>
+            </motion.div>
 
-            <div>
-              <motion.h2
-                className="mb-6 uppercase text-company-50"
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                viewport={{ once: true, amount: 0.3 }}
-              >
-                Produk Kami
-              </motion.h2>
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 1, delay: 0.3 }}
+            >
+              <h2 className="mb-6 uppercase text-company-50">Produk Kami</h2>
               <ul>
-                <motion.li
-                  className="mb-4"
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                >
+                <li className="mb-4">
                   <Link
                     to="/services"
                     className="text-slate-400 hover:text-company-50"
                   >
                     Tabungan Harian
                   </Link>
-                </motion.li>
-                <motion.li
-                  className="mb-4"
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                >
+                </li>
+                <li className="mb-4">
                   <Link
                     to="/services"
                     className="text-slate-400 hover:text-company-50"
                   >
                     Tabungan Berjangka
                   </Link>
-                </motion.li>
-                <motion.li
-                  className="mb-4"
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                >
+                </li>
+                <li className="mb-4">
                   <Link
                     to="/services"
                     className="text-slate-400 hover:text-company-50"
                   >
                     Deposito
                   </Link>
-                </motion.li>
-                <motion.li
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                >
+                </li>
+                <li>
                   <Link
                     to="/services"
                     className="text-slate-400 hover:text-company-50"
                   >
                     Kredit Pinjaman
                   </Link>
-                </motion.li>
+                </li>
               </ul>
-            </div>
+            </motion.div>
 
-            <div>
-              <motion.h2
-                className="mb-6 uppercase text-company-50"
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                viewport={{ once: true, amount: 0.3 }}
-              >
-                Temukan Kami
-              </motion.h2>
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 1, delay: 0.5 }}
+            >
+              <h2 className="mb-6 uppercase text-company-50">Temukan Kami</h2>
               <ul>
-                <motion.li
-                  className="mb-4"
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                >
+                <li className="mb-4">
                   <Link to="#" className="text-slate-400 hover:text-company-50">
                     {" "}
                     Customer Care & Service
                   </Link>
-                </motion.li>
-                <motion.li
-                  className="mb-4"
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                >
+                </li>
+                <li className="mb-4">
                   <Link to="#" className="text-slate-400 hover:text-company-50">
                     {" "}
                     Instagram
                   </Link>
-                </motion.li>
-                <motion.li
-                  className="mb-4"
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.7 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                >
+                </li>
+                <li className="mb-4">
                   <Link to="#" className="text-slate-400 hover:text-company-50">
                     {" "}
                     Facebook
                   </Link>
-                </motion.li>
+                </li>
               </ul>
-            </div>
+            </motion.div>
           </div>
         </div>
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
           viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 1, delay: 0.0 }}
         >
           <div className="lg:hidden mt-4">
             <span className="text-center text-company-50">

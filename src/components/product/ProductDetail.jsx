@@ -1,12 +1,12 @@
 import { useParams } from "react-router-dom";
-import ProductImage from "../../assets/images/product-details.jpg";
 import products from "../../data/products";
 
-// eslint-disable-next-line
-import { motion } from "motion/react";
 import LayouDefaultContent from "../../layouts/LayoutDefaultContent";
 import Breadcrumbs from "../Breadcrumbs";
 import { useEffect } from "react";
+
+// eslint-disable-next-line
+import { motion } from "framer-motion";
 
 const ProductDetail = () => {
   const { slug } = useParams();
@@ -22,6 +22,7 @@ const ProductDetail = () => {
 
   const cards = [
     {
+      id: 1,
       title: "Keunggulan Produk",
       items: [
         "Setoran Bulanan Tetap – Nasabah menyetor sejumlah dana yang telah disepakati setiap bulan.",
@@ -33,6 +34,7 @@ const ProductDetail = () => {
       ],
     },
     {
+      id: 2,
       title: "Syarat dan Ketentuan",
       items: [
         "Minimal setoran awal: Rp100.000",
@@ -43,6 +45,7 @@ const ProductDetail = () => {
       ],
     },
     {
+      id: 3,
       title: "Cara Membuka Tabungan",
       items: [
         "Datang ke Kantor Pusat Restu Dewata atau Kantor Cabang Restu Dewata",
@@ -64,50 +67,50 @@ const ProductDetail = () => {
       />
       <div className="py-20" key={slug}>
         <motion.h1
-          className="font-inter-black text-4xl"
           initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.8, delay: 0 }}
+          animate={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 1 }}
+          className="font-inter-black text-4xl"
         >
           {product.title}
         </motion.h1>
         <motion.p
-          className="text-gray-500"
           initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
+          animate={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 1, delay: 0.3 }}
+          className="text-gray-500"
         >
           {product.subtitle}
         </motion.p>
         <motion.img
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 1, delay: 0.5 }}
           src={product.image}
           className="w-full h-auto max-h-[500px] mt-6 rounded-lg shadow-lg object-cover"
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
         />
 
         <motion.p
-          className="mt-8"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 1, delay: 0.0 }}
+          className="mt-8"
         >
           {product.description}
         </motion.p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-24">
           {cards.map((card, index) => (
             <motion.div
-              key={index}
-              className="bg-gradient-to-b from-white to-company-400 shadow-lg rounded-xl p-6"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.8, delay: card.id * 0.4 }}
+              transition={{ duration: 0.8, delay: card.id * 0.3 }}
+              key={index}
+              className="bg-gradient-to-b from-white to-company-400 shadow-lg rounded-xl p-6"
             >
               <h2 className="text-xl font-semibold text-company-950 mb-4 mt-4">
                 {card.title}

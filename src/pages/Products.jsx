@@ -1,11 +1,10 @@
 import Breadcrumbs from "../components/Breadcrumbs";
-import HeroSectionProduct from "../components/product/ProductDetail";
 import LayouDefaultContent from "../layouts/LayoutDefaultContent";
 import products from "../data/products";
 import { Link } from "react-router-dom";
 
 // eslint-disable-next-line
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 export default function Products() {
   return (
@@ -13,7 +12,7 @@ export default function Products() {
       <Breadcrumbs
         items={[
           { label: "Beranda", href: "/" },
-          { label: "Tabungan Berjangka" }, // item terakhir biasanya tidak punya link
+          { label: "All Products" }, // item terakhir biasanya tidak punya link
         ]}
       />
       {/* Grid Layout untuk Card */}
@@ -38,9 +37,9 @@ export default function Products() {
                     {product.title}
                   </div>
                   <p className="text-company-950">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Voluptatibus quia, nulla! Maiores et perferendis eaque,
-                    exercitationem praesentium nihil.
+                    {product.description.length > 200
+                      ? product.description.slice(0, 200) + "..."
+                      : product.description}
                   </p>
                 </div>
                 {/* <div className="px-6 pt-4 pb-2">
