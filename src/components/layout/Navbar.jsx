@@ -45,6 +45,7 @@ export default function Navbar() {
         { name: "Tabungan Berjangka", to: "/product/tabungan-berjangka" },
         { name: "Deposito", to: "/product/deposito" },
         { name: "Kredit Pinjaman", to: "/product/kredit" },
+        { name: "Kalkulator Simulasi", to: "/simulation" },
       ],
     },
     { name: "Laporan Publikasi", to: "/report", subMenu: null },

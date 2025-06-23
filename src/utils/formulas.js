@@ -1,26 +1,36 @@
-export function hitungTabungan(setoran, bulan, bungaTahunan) {
+// src/utils/formulas.js
+
+export function hitungTabungan(nama, setoran, bulan, bungaTahunan) {
   const rincian = [];
   let totalSetoran = 0;
   let totalBunga = 0;
 
   for (let i = 1; i <= bulan; i++) {
-    const setoranKe = setoran;
-    const bungaBulanIni = ((setoran * (bungaTahunan / 100)) / 12) * i;
-    totalSetoran += setoranKe;
-    totalBunga += bungaBulanIni;
+    const saldoAwal = totalSetoran;
+    totalSetoran += setoran;
+
+    const bunga = (saldoAwal * bungaTahunan) / 100 / 12;
+    totalBunga += bunga;
 
     rincian.push({
       bulan: i,
-      setoran: setoranKe,
-      bunga: bungaBulanIni,
-      total: setoranKe + bungaBulanIni,
+      setoran,
+      saldoAwal,
+      bunga,
+      saldoAkhir: saldoAwal + setoran + bunga,
     });
   }
 
+  const kenaPajak = totalBunga > 7500000;
+  const pajak = kenaPajak ? totalBunga * 0.2 : 0;
+  const saldoAkhir = totalSetoran + totalBunga - pajak;
+
   return {
-    setoran: totalSetoran,
-    bunga: totalBunga,
-    total: totalSetoran + totalBunga,
+    nama,
+    totalSetoran,
+    totalBunga,
+    pajak,
+    saldoAkhir,
     rincian,
   };
 }
