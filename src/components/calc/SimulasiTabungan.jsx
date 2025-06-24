@@ -1,4 +1,8 @@
 import { useState } from "react";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import TabunganPDF from "./TabunganPDF";
+
+import { BlobProvider } from "@react-pdf/renderer";
 
 const SimulasiTabungan = () => {
   const [nama, setNama] = useState("");
@@ -16,11 +20,20 @@ const SimulasiTabungan = () => {
     let saldo = 0;
     let totalSetoran = 0;
     let totalBunga = 0;
+    let totalPajak = 0;
     const data = [];
 
     for (let i = 1; i <= bulan; i++) {
       totalSetoran += nominal;
-      const bunga = Math.floor(saldo * bungaPerBulan); // <-- potong ke bawah
+      let bunga = Math.floor(saldo * bungaPerBulan);
+
+      let pajakBunga = 0;
+      if (saldo > 7500000) {
+        pajakBunga = Math.floor(bunga * 0.2);
+        bunga -= pajakBunga;
+        totalPajak += pajakBunga;
+      }
+
       totalBunga += bunga;
       saldo += nominal + bunga;
 
@@ -28,83 +41,19 @@ const SimulasiTabungan = () => {
         bulan: i,
         setoran: nominal,
         bunga: bunga,
-        akumulasi: Math.floor(saldo), // <-- tetap buang desimal
+        pajak: pajakBunga,
+        akumulasi: Math.floor(saldo),
       });
-    }
-
-    let pajak = 0;
-    if (totalBunga > 7500000) {
-      pajak = Math.floor(totalBunga * 0.2); // <-- potong ke bawah
-      saldo -= pajak;
     }
 
     setRingkasan({
       totalSetoran,
       totalBunga: Math.floor(totalBunga),
-      totalPajak: pajak,
+      totalPajak: totalPajak,
       totalSaldo: Math.floor(saldo),
     });
 
     setHasil(data);
-  };
-
-  const bukaTabBaruUntukCetak = () => {
-    const popup = window.open("", "_blank");
-    if (!popup) return alert("Popup diblokir.");
-
-    const tabel = hasil
-      .map(
-        (item) => `
-  <tr>
-    <td>${item.bulan}</td>
-    <td>Rp ${item.setoran.toLocaleString()}</td>
-    <td>Rp ${item.bunga.toLocaleString()}</td>
-    <td>Rp ${item.akumulasi.toLocaleString()}</td>
-  </tr>`
-      )
-      .join("");
-
-    const html = `
-      <html>
-      <head>
-        <title>Hasil Simulasi</title>
-        <style>
-          body { font-family: sans-serif; padding: 20px; }
-          table { border-collapse: collapse; width: 100%; margin-top: 20px; }
-          th, td { border: 1px solid #999; padding: 8px; text-align: center; }
-          th { background: #f0f0f0; }
-        </style>
-      </head>
-      <body>
-        <h2>Hasil Simulasi Tabungan</h2>
-        <p><strong>Nama:</strong> ${nama}</p>
-        <p><strong>Total Setoran:</strong> Rp ${ringkasan.totalSetoran.toLocaleString()}</p>
-        <p><strong>Total Bunga:</strong> Rp ${ringkasan.totalBunga.toLocaleString()}</p>
-        <p><strong>Total Pajak:</strong> Rp ${ringkasan.totalPajak.toLocaleString()}</p>
-        <p><strong>Total Tabungan Saat Jatuh Tempo:</strong> Rp ${ringkasan.totalSaldo.toLocaleString()}</p>
-        <table>
-          <thead>
-            <tr>
-              <th>Bulan</th>
-              <th>Setoran</th>
-              <th>Bunga (Rp)</th>
-              <th>Akumulasi (Rp)</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${tabel}
-          </tbody>
-        </table>
-        <script>
-          window.onload = function() {
-            window.print();
-          }
-        </script>
-      </body>
-      </html>
-    `;
-    popup.document.write(html);
-    popup.document.close();
   };
 
   return (
@@ -173,20 +122,37 @@ const SimulasiTabungan = () => {
 
       {hasil.length > 0 && (
         <>
-          <button
-            onClick={bukaTabBaruUntukCetak}
-            className="bg-green-600 text-white px-4 py-2 rounded mb-4"
+          <BlobProvider
+            document={
+              <TabunganPDF nama={nama} ringkasan={ringkasan} hasil={hasil} />
+            }
           >
-            Lihat / Cetak PDF
-          </button>
+            {({ url, loading, error }) =>
+              loading ? (
+                <button disabled className="...">
+                  Menyiapkan PDF...
+                </button>
+              ) : error ? (
+                <p>Error: {error.message}</p>
+              ) : (
+                <button
+                  onClick={() => window.open(url, "_blank")}
+                  className="bg-green-600 text-white px-4 py-2 rounded mb-4"
+                >
+                  Buka PDF di Tab Baru
+                </button>
+              )
+            }
+          </BlobProvider>
 
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto w-full">
             <table className="w-full text-sm border border-gray-300">
               <thead className="bg-gray-100">
                 <tr>
                   <th className="border px-2 py-1">Bulan ke</th>
                   <th className="border px-2 py-1">Setoran (Rp)</th>
                   <th className="border px-2 py-1">Bunga (Rp)</th>
+                  <th className="border px-2 py-1">Pajak (Rp)</th>
                   <th className="border px-2 py-1">Akumulasi (Rp)</th>
                 </tr>
               </thead>
@@ -201,6 +167,9 @@ const SimulasiTabungan = () => {
                     </td>
                     <td className="border px-2 py-1 text-right">
                       Rp {item.bunga.toLocaleString()}
+                    </td>
+                    <td className="border px-2 py-1 text-right">
+                      Rp {item.pajak.toLocaleString()}
                     </td>
                     <td className="border px-2 py-1 text-right">
                       Rp {item.akumulasi.toLocaleString()}
