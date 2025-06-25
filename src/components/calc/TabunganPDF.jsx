@@ -1,6 +1,5 @@
 import { Page, Text, View, Document, StyleSheet } from "@react-pdf/renderer";
 
-// Gaya PDF
 const styles = StyleSheet.create({
   page: {
     padding: 30,
@@ -38,7 +37,6 @@ const styles = StyleSheet.create({
   },
 });
 
-// Komponen PDF
 const TabunganPDF = ({ nama, ringkasan, hasil }) => (
   <Document>
     <Page style={styles.page}>
@@ -69,7 +67,7 @@ const TabunganPDF = ({ nama, ringkasan, hasil }) => (
             <Text style={styles.cell}>Rp {item.setoran.toLocaleString()}</Text>
             <Text style={styles.cell}>Rp {item.bunga.toLocaleString()}</Text>
             <Text style={styles.cell}>
-              Rp {(item.pajak || 0).toLocaleString()}
+              Rp {item.pajak?.toLocaleString() || 0}
             </Text>
             <Text style={styles.cell}>
               Rp {item.akumulasi.toLocaleString()}

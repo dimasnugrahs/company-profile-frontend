@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { PDFDownloadLink } from "@react-pdf/renderer";
+import { pdf } from "@react-pdf/renderer";
 import TabunganPDF from "./TabunganPDF";
-
-import { BlobProvider } from "@react-pdf/renderer";
 
 const SimulasiTabungan = () => {
   const [nama, setNama] = useState("");
@@ -49,11 +47,28 @@ const SimulasiTabungan = () => {
     setRingkasan({
       totalSetoran,
       totalBunga: Math.floor(totalBunga),
-      totalPajak: totalPajak,
+      totalPajak,
       totalSaldo: Math.floor(saldo),
     });
 
     setHasil(data);
+  };
+
+  const handlePDF = async () => {
+    const doc = <TabunganPDF nama={nama} ringkasan={ringkasan} hasil={hasil} />;
+    const blob = await pdf(doc).toBlob();
+    const fileURL = URL.createObjectURL(blob);
+
+    if (window.innerWidth < 768) {
+      const link = document.createElement("a");
+      link.href = fileURL;
+      link.download = `Simulasi_Tabungan_${nama || "nasabah"}.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      window.open(fileURL, "_blank");
+    }
   };
 
   return (
@@ -82,6 +97,7 @@ const SimulasiTabungan = () => {
           <option value="6">6 bulan</option>
           <option value="12">12 bulan</option>
           <option value="24">24 bulan</option>
+          <option value="36">36 bulan</option>
         </select>
         <input
           type="number"
@@ -122,28 +138,12 @@ const SimulasiTabungan = () => {
 
       {hasil.length > 0 && (
         <>
-          <BlobProvider
-            document={
-              <TabunganPDF nama={nama} ringkasan={ringkasan} hasil={hasil} />
-            }
+          <button
+            onClick={handlePDF}
+            className="bg-green-600 text-white px-4 py-2 rounded mb-4"
           >
-            {({ url, loading, error }) =>
-              loading ? (
-                <button disabled className="...">
-                  Menyiapkan PDF...
-                </button>
-              ) : error ? (
-                <p>Error: {error.message}</p>
-              ) : (
-                <button
-                  onClick={() => window.open(url, "_blank")}
-                  className="bg-green-600 text-white px-4 py-2 rounded mb-4"
-                >
-                  Buka PDF di Tab Baru
-                </button>
-              )
-            }
-          </BlobProvider>
+            {window.innerWidth < 768 ? "Download PDF" : "Lihat / Cetak PDF"}
+          </button>
 
           <div className="overflow-x-auto w-full">
             <table className="w-full text-sm border border-gray-300">
