@@ -13,6 +13,7 @@ import Report from "./pages/Report";
 import BlogDetails from "./pages/BlogDetails";
 import ProductDetail from "./components/product/ProductDetail";
 import CalcSection from "./components/calc/CalcSection";
+import SavingsSimulator from "./components/calc/SavingsSimulator";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/details" element={<BlogDetails />} />
           <Route path="/simulation" element={<CalcSection />} />
+          <Route path="/savingsimulation" element={<SavingsSimulator />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </MainLayout>
